@@ -1,3 +1,9 @@
+
+# Try it out 
+Predict rental duration in days using the random forest model here 
+
+https://group4-ml-model-264215dc2428.herokuapp.com/docs#/default/modelsInfo_model_predict_post
+
 # ml_models_deployments
 This repository is mainly using [mlModelSaver](https://pypi.org/project/mlModelSaver/)
 
@@ -100,19 +106,3 @@ heroku login
 git push heroku master
 ```
 
-
-# how to use the api 
-
-{"amount":2,
-"release_year": 2005,
-"rental_rate":3,
-"length" : 80,
-"replacement_cost":18.9,
-"NC-17": 1,
-"PG" : 0,
-"PG-13" : 0,
-"R" :0,
-"amount_2":4,
-"length_2":6400,
-"rental_rate_2" : 9,
-"special_features":"Deleted Scenes"}
