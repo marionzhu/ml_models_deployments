@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import pandas as pd
 
-from mlModelSaver import MlModelSaver
+from notebooks.mlModelSaver2 import MlModelSaver
 mlModelSaverInstance = MlModelSaver({
     "baseRelativePath": ".",
     "modelsFolder": "models"
@@ -27,7 +27,7 @@ class ModelsBody(BaseModel):
 
 @app.get("/")
 def read_root():
-    return "Hello Jason"
+    return "Hello World, this is Marion's ML API"
 
 @app.get("/models/list")
 def models():
