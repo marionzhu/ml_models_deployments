@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import pandas as pd
 
-from notebooks.mlModelSaver2 import MlModelSaver
+from mlModelSaver2 import MlModelSaver
 mlModelSaverInstance = MlModelSaver({
     "baseRelativePath": ".",
     "modelsFolder": "models"
@@ -16,11 +16,23 @@ mlModelSaverInstance = MlModelSaver({
 app = FastAPI()
 
 class ModelsBody(BaseModel):
-    name: str = Field(..., example="0001_test")
+    name: str = Field(..., example="rf")
     inputs:  Optional[List[Dict[str, Any]]] = Field(
         None,
         example=[
-            {"Temperature": 56, "Advertising": 15, "Discount": 25}
+            {"amount":2,
+"release_year": 2005,
+"rental_rate":3,
+"length" : 80,
+"replacement_cost":18.9,
+"NC-17": 1,
+"PG" : 0,
+"PG-13" : 0,
+"R" :0,
+"amount_2":4,
+"length_2":6400,
+"rental_rate_2" : 9,
+"special_features":"Deleted Scenes"}
         ]
     )
 
@@ -34,7 +46,7 @@ def models():
     return mlModelSaverInstance.listOfModels()
 
 @app.get("/model/info/{modelName}")
-def modelInfo(modelName: str = Path(..., example="0001_test")):
+def modelInfo(modelName: str = Path(..., example="rf")):
     model = mlModelSaverInstance.getModel(modelName)
 
     response = model.mlModelSaverConfig
@@ -45,7 +57,6 @@ def modelInfo(modelName: str = Path(..., example="0001_test")):
 @app.post("/model/predict")
 def modelsInfo(body: ModelsBody):
     model = mlModelSaverInstance.getModel(body.name)
-
     inputDf = pd.DataFrame(body.inputs)
     return model.mlModelSavePredict(
         inputDf,

@@ -99,3 +99,20 @@ heroku login
 
 git push heroku master
 ```
+
+
+# how to use the api 
+
+{"amount":2,
+"release_year": 2005,
+"rental_rate":3,
+"length" : 80,
+"replacement_cost":18.9,
+"NC-17": 1,
+"PG" : 0,
+"PG-13" : 0,
+"R" :0,
+"amount_2":4,
+"length_2":6400,
+"rental_rate_2" : 9,
+"special_features":"Deleted Scenes"}
